@@ -9,6 +9,7 @@ var logger = require('morgan');
 var exphbs = require('express-handlebars');
 
 // Require Routes
+var index = require('./routes/index.js');
 var scraper = require('./routes/scrapeSite.js');
 
 // Initialize express
@@ -23,7 +24,12 @@ app.use(bodyParser.json());
 // Serve public folder
 app.use(express.static(__dirname+'public'));
 
+// Add handlebars engine
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 // Routes
+app.use('/', index);
 app.use('/', scraper);
 
 // Test route to make sure server is working

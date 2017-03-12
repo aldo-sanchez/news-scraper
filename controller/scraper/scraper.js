@@ -25,8 +25,8 @@ module.exports = (res)=>{
       };
       // Push obj to result array
       result.push(obj);
-      // console.log('title:', obj.title);
-      // console.log('url', o)
+      
+      // Add articles to mongodb
       odb.insertArticle(obj);
     });
     // Send result as response

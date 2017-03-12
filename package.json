@@ -5,5 +5,12 @@
   "main": "server.js",
   "repository": "https://github.com/aldo-sanchez/news-scraper.git",
   "author": "Aldo Sanchez",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.8.6",
+    "morgan": "^1.8.1"
+  }
 }

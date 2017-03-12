@@ -22,7 +22,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 
 // Serve public folder
-app.use(express.static(__dirname+'public'));
+app.use(express.static(__dirname+'/public'));
 
 // Add handlebars engine
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -33,9 +33,9 @@ app.use('/', index);
 app.use('/', scraper);
 
 // Test route to make sure server is working
-app.get('/test', (req, res)=> {
-  res.send('Just like magic')
-});
+// app.get('/test', (req, res)=> {
+//   res.send('Just like magic')
+// });
 
 // Server listener
 app.listen(PORT, function() {

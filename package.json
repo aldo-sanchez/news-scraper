@@ -1,0 +1,9 @@
+{
+  "name": "news-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes news from El Diario de Juarez",
+  "main": "server.js",
+  "repository": "https://github.com/aldo-sanchez/news-scraper.git",
+  "author": "Aldo Sanchez",
+  "license": "MIT"
+}

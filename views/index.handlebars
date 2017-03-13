@@ -1,2 +1,4 @@
 <h1>HOME</h1>
-<button id="getArticles" type="button">Get Articles</button>
+{{#each articles}}
+<a href="{{{link}}}"><p>{{title}}</p></a>
+{{/each}}

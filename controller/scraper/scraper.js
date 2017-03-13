@@ -13,9 +13,9 @@ module.exports = (res)=>{
     // Load html
     var $ = cheerio.load(html);
     var result = [];
-
+    var count = 0;
     // Scrape news from html
-    $('.centro__nota .d__items p a').each((i, elem)=> {
+    $('.d__items p a').each((i, elem)=> {
       // Get url and title and store in obj
       var url = $(elem).attr('href');
       var title = $(elem).text();
@@ -23,11 +23,18 @@ module.exports = (res)=>{
         url: url,
         title: title
       };
+      count++;
       // Push obj to result array
       result.push(obj);
       
+      // I find the multiple of 2 because site being scraped contains two paragraphs and links but i only need one.
+      var multiple2 = count % 2;
+
       // Add articles to mongodb
-      odb.insertArticle(obj);
+      if(multiple2) {
+        odb.insertArticle(obj, count);
+      }
+      
     });
     // Send result as response
     res.end();

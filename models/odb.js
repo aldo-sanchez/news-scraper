@@ -40,7 +40,7 @@ module.exports = function() {
       }
       else{
         console.log(articles)
-        res.render('index', {articles: articles});
+        res.render('articles', {articles: articles});
       }
     })
   }

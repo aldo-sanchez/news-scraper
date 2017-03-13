@@ -18,11 +18,21 @@ var ArticleSchema = new Schema({
   link: {
     type: String,
     required: true
+  }, 
+
+  saved: {
+    type: Boolean,
+    default: false
   }
 });
 
 // Create model
 var Article = mongoose.model('Article', ArticleSchema);
+
+ArticleSchema.methods.saved = function() {
+  this.saved = true;
+  return this.saved;
+};
 
 // Export model
 module.exports = Article;

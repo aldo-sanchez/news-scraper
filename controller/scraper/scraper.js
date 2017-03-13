@@ -30,6 +30,6 @@ module.exports = (res)=>{
       odb.insertArticle(obj);
     });
     // Send result as response
-    res.send(result);
+    res.end();
   });
 };

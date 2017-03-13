@@ -10,7 +10,8 @@ var exphbs = require('express-handlebars');
 
 // Require Routes
 var index = require('./routes/index.js');
-var scraper = require('./routes/scrapeSite.js');
+var scrape = require('./routes/scrape.js');
+var articles = require('./routes/articles.js');
 
 // Initialize express
 var app = express();
@@ -30,12 +31,8 @@ app.set('view engine', 'handlebars');
 
 // Routes
 app.use('/', index);
-app.use('/', scraper);
-
-// Test route to make sure server is working
-// app.get('/test', (req, res)=> {
-//   res.send('Just like magic')
-// });
+app.use('/', scrape);
+app.use('/', articles);
 
 // Server listener
 app.listen(PORT, function() {

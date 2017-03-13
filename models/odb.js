@@ -20,7 +20,7 @@ db.once('open', ()=>{
 });
 
 module.exports = function() {
-  this.insertArticle = function(obj) {
+  this.insertArticle = (obj)=>{
     var entry = new Article({
       title: obj.title,
       link: obj.url
@@ -31,4 +31,15 @@ module.exports = function() {
       else{console.log(doc)};
     });
   };
+
+  this.findAll = (res)=>{
+    Article.find({}, (err,doc)=>{
+      if(err) {
+        console.log(err);
+      }
+      else{
+        res.send(doc);
+      }
+    })
+  }
 };

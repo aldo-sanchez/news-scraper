@@ -42,6 +42,11 @@ module.exports = function() {
         console.log(articles)
         res.render('articles', {articles: articles});
       }
-    })
-  }
+    });
+  };
+  
+  this.updateSave = (id, isSaved, res)=>{
+    Article.update({ _id: id }, { $set: { saved: isSaved }})
+      .exec(res.send('yes it is updated'));
+  };
 };

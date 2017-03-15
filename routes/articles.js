@@ -10,9 +10,16 @@ var router = express.Router();
 
 // Route
 router.get('/articles', (req, res)=>{
-  // Call scraper function and send res as argument
+  // find all articles
   odb.findAll(res);
 });
 
+router.post('/save/:id/:isSaved', (req, res)=>{
+  var id = req.params.id;
+  var isSaved = req.params.isSaved;
+
+  // update selected article's saved property (true/false)
+  odb.updateSave(id, isSaved, res);
+})
 // Export router
 module.exports = router;

@@ -21,6 +21,7 @@ const PORT = process.env.PORT;
 // Middleware
 app.use(logger('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Serve public folder
 app.use(express.static(__dirname+'/public'));
@@ -33,6 +34,12 @@ app.set('view engine', 'handlebars');
 app.use('/', index);
 app.use('/', scrape);
 app.use('/', articles);
+
+app.post('/test/:id/:isSaved', (req, res)=>{
+  console.log(req.params.id);
+  console.log(req.params.isSaved);
+  res.end();
+})
 
 // Server listener
 app.listen(PORT, function() {

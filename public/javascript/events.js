@@ -7,6 +7,13 @@ $(document).ready(function(){
 
 $(".button-collapse").sideNav();
 
-$(document).on('click','.addNote', function() {
-  var id = $(this).attr('id');
+$(document).on('click','.saveBtn', function() {
+  var id = $(this).attr('data-id');
+  var isSaved = $(this).attr('data-isSaved')
+  // console.log(id)
+  var url = '/save/' + id + '/' + isSaved;
+  $.ajax({
+    method: 'POST',
+    url: url,
+  }).done(function(data){console.log(id)});
 });

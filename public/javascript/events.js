@@ -11,7 +11,7 @@ $(document).on('click','.saveBtn', function() {
   var id = $(this).attr('data-id');
   var isSaved = $(this).attr('data-isSaved')
   // console.log(id)
-  var url = '/save/' + id + '/' + isSaved;
+  var url = '/save_article/' + id + '/' + isSaved;
   $.ajax({
     method: 'POST',
     url: url,

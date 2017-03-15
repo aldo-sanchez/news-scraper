@@ -44,6 +44,17 @@ module.exports = function() {
       }
     });
   };
+
+  this.findSaved = (res)=>{
+    Article.find({saved: true}, (err, articles)=>{
+      if(err) {
+        console.log(err);
+      }
+      else {
+        res.render('articles', {articles: articles});
+      }
+    })
+  }
   
   this.updateSave = (id, isSaved, res)=>{
     Article.update({ _id: id }, { $set: { saved: isSaved }})

@@ -19,7 +19,7 @@ router.get('/articles', (req, res)=>{
 
 router.get('/saved', (req, res)=>{
   
-  // 
+  // Find all saved articles and render
   odb.findSaved(res);
 });
 
